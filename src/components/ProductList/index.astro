@@ -1,0 +1,17 @@
+---
+import { getProducts } from "../../products.api";
+
+const products = await getProducts();
+---
+
+<ul class="grid grid-cols-3 space-x-6 space-y-6">
+  {
+    products.map((p: any) => (
+      <li class="w-full">
+        <a href={`/product/${p.id}`}>
+          <span>{p.title}</span>
+        </a>
+      </li>
+    ))
+  }
+</ul>
