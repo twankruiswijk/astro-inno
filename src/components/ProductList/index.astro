@@ -1,5 +1,6 @@
 ---
 import { getProducts } from "../../products.api";
+import { Image } from "@astrojs/image/components";
 
 const products = await getProducts();
 ---
@@ -9,6 +10,7 @@ const products = await getProducts();
     products.map((p: any) => (
       <li class="w-full">
         <a href={`/product/${p.id}`}>
+          <Image src={p.image} width="1200" aspectRatio="1:1" alt="" />
           <span>{p.title}</span>
         </a>
       </li>
